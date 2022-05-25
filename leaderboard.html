@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> 
+<![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> 
+<![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153119114-2"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-153119114-2');
+		</script>
+
+        <title>VLUE | ByteDance AI LAB </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="author" content="VLUE">
+        <meta charset="UTF-8">
+
+        <!-- CSS Bootstrap & Custom -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
+		<link href="css/animate.css" rel="stylesheet" media="screen">
+
+				
+		<meta property="og:site_name" content="VLUE | ByteDance AI Lab">
+		<meta property="og:title" content="VLUE | A Multi-Task Multi-Dimension Benchmark for Evaluating Vision-Language Pre-training">
+		<meta name=description content="Authors: Wangchunshu Zhou, Yan Zeng, Shizhe Diao, Xinsong Zhang">
+		<meta name=keywords content="VLUE, Wangchunshu Zhou, Yan Zeng, Shizhe Diao, Xinsong Zhang, Natural Language Processing, Computational Linguistics, ByteDance, ByteDance AI Lab, HKUST, Machine Learning, StatNLP, NLP, ML, Cross-Cultural">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script language="javascript">
+				var ie4 = false; if(document.all) { ie4 = true; }
+			function getObject(id) { if (ie4) { return document.all[id]; } else { return document.getElementById(id); } }
+			function toggle(link, divId) { var lText = link.innerHTML; var d = getObject(divId);
+			 if (lText == '[show more]') { link.innerHTML = '[hide more]'; d.style.display = 'block'; }
+			 else { link.innerHTML = '[show more]'; d.style.display = 'none'; } }
+			   </script>
+<script>
+$(document).ready(function () {
+$('#dtBasicExample').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+</script>
+
+<!-- <link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet"> -->
+
+<!-- <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script> -->
+
+		<link href="style.css" rel="stylesheet" media="screen">
+		<!-- MDBootstrap Datatables  -->
+		<link href="css/addons/datatables.min.css" rel="stylesheet">
+		<!-- MDBootstrap Datatables  -->
+		<script type="text/javascript" src="js/addons/datatables.min.js"></script>
+        <!-- Favicons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="images/ico/favicon.ico">
+    
+        <!-- JavaScripts -->
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/min/modernizr.min.js"></script>
+        <!--[if lt IE 8]>
+	    <div style=' clear: both; text-align:center; position: relative;'>
+            <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+        </div>
+		<![endif]-->
+		<link href="js/bootstrap-table.min.css" rel="stylesheet">
+
+<script src="js/bootstrap-table.min.js"></script>
+
+
+    </head>
+    <body>
+	
+	
+		<div class="responsive-menu visible-sm visible-xs">
+			<a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+			<div class="menu-open">
+				<nav>
+						<ul class="sf-menu">
+								<li ><a href="index.html">Introduction</a></li> 
+								<li ><a href="leaderboard.html">Leaderboard</a></li>
+								<li ><a href="analysis.html">Analysis</a></li>
+								<li ><a href="#misc">Misc.</a></li>
+							</ul>
+				</nav> 
+			</div> <!-- /.menu-open -->
+		</div> <!-- /.responsive-menu -->
+
+		<header class="site-header">
+			
+<style type="text/css">
+
+	.performanceTable {
+	  margin: 10px 0px;
+	  font-size: 1.2em;
+	}
+	.performanceTable .institution {
+	   margin: 0px 0px 0px 0px;
+	  font-style: italic;
+	  font-weight: 500 !important;
+	  font-family: 'Roboto', sans-serif, Arial;
+	}
+	.performanceTable .date {
+	  font-weight: normal;
+	  font-size: 1.1em;
+	  margin: 0px 0px 10px 0px;
+	}
+	.performanceTable .footnote {
+	  font-weight: normal;
+	  font-size: 0.9em;
+	  margin: 0 0 0 0;
+	}
+	.performanceTable .model {
+	  font-weight: bold;
+	  color:black;
+	  font-size: 1.1em;
+	  margin: 10px 0px 0px 0px;
+	}
+	.performanceTable tr.human-row {
+	  background: #f5f5f5;
+	}
+	.performanceTable td {
+	  text-align: center; 
+	  max-width: 250px;	
+	  vertical-align: middle;
+	  font-size: 1em;
+	}
+	.performanceTable th {
+	  text-align: center;
+	  max-width: 250px;
+	}
+	
+	p {
+	  font-size: 1.1em;
+	  font-weight: 400;
+	}
+	</style>
+			
+			<div class="container">
+				<div class="main-header">
+					<div class="row">
+						
+						<div class="col-md-5 col-sm-4" id="top">
+							<h1 style="color: white"><b>VLUE</b></em></h1>
+							<span style="color:aliceblue; font-size: 15pt; font-family: Roboto, Helvetica, Arial, Heveltica Neue, sans-serif"> VLUE: A Multi-Task Multi-Dimension Benchmark <br> for Evaluating Vision-Language Pre-training</span> <br>
+
+							<span style="color:aliceblue; font-size: 12pt; font-family: Roboto, Helvetica, Arial, Heveltica Neue, sans-serif">
+								<br> 
+								<a target="_blank" href="https://michaelzhouwang.github.io/">Wangchunshu Zhou</a>, 
+								Yan Zeng,
+								<a target="_blank" href="https://shizhediao.github.io/">Shizhe Diao</a>, 
+								Xinsong Zhang
+								<br>
+							</span>
+							<br>
+						</div> 
+						
+					</div> <!-- /.row -->
+				</div> <!-- /.main-header -->
+			</div> <!-- /.container -->
+			<div class="menu-wrapper visible-md visible-lg">
+				<div class="container">
+					<div class="inner-menu">
+						<div class="row">
+							<div class="col-md-12 main-menu">
+								<nav>
+									<ul class="sf-menu"> 
+								<li ><a href="index.html">Introduction</a></li> 
+								<!-- <li ><a href="https://huggingface.co/nlp/viewer/?dataset=common_gen " target="_blank">Data Explorer</a></li> -->
+								<li ><a href="leaderboard.html">Leaderboard</a></li>
+								<li ><a href="analysis.html">Analysis</a></li>
+								<li ><a href="#misc">Misc.</a></li>
+										<!-- <li ><a href="#blog">Blogs</a></li>  -->
+										<!-- <li><a href="#contact">Contact</a></li> -->
+									</ul>
+								</nav>
+							</div> <!-- /.main-menu --> 
+						</div> <!-- /.row -->
+					</div> <!-- /.inner-menu -->
+				</div> <!-- /.container -->
+			</div> <!-- /.menu-wrapper -->
+		</header> <!-- /.site-header -->
+
+
+		<div class="container">
+			
+			<div class="top-content">
+				
+ 
+
+			<div class="row">
+					<div class="col-md-12">
+						
+								
+								</div>
+								 
+									</div> <!-- /.col-md-4 -->
+								</div>
+								
+
+								<div class="box-content">
+									<div class="row">
+										<div class="col-md-12" id="exp">
+										<h4 class="widget-title"><span><b><a>VLUE Leaderboard (v1.0)</a></b></span></h4>
+										
+										<table class="table performanceTable">
+											<tbody>
+											<tr><th></th><th>Task</th><th></th><th>TR</th><th></th><th></th><th>IR</th><th></th><th>NLVR2</th><th>VQA</th><th>VG</th><th></th></tr>
+											<tr><th><p>Rank</p></th><th><p>Model</p></th>
+											<th><p>R@1</p></th><th><p>R@5</p></th><th><p>R@10</p></th>
+											<th><p>R@1</p></th><th><p>R@5</p></th><th><p>R@10</p></th>
+											<th><p>Acc</p></th><th><p>Acc</p></th><th><p>Acc</p></th>
+											<!-- <th><p style="color: black"><b>Average</b></p></th></tr> -->
+											 <!-- <tr style="background-color: lightgray;">
+												<td><p class="rank"> &nbsp;</p><span class="date badge badge-secondary"></span></td>
+												<td style="word-break:break-word;"><p class="model" > Upper Bound</p> 
+												</td>
+												<td><u>46.49</u></td>
+												<td><u>37.64</u></td> 
+												<td><u>52.43</u></td>
+											  </tr>  -->
+
+
+											<tr>
+											<td><p class="rank">1</p><span class="date badge badge-secondary">Jun 09, 2021</span></td>
+											<td style="word-break:break-word;"><p class="model">METER</p>
+												<p class="institution">UCLA and Microsoft <br></p>
+												<a href="mailto:zdou@cs.ucla.edu">Email</a> &nbsp; <a href="https://arxiv.org/abs/2111.02387" target="_blank">Paper (arXiv'21) </a>
+											</td>
+											<td>62.11</td> 
+											<td>87.47</td>
+											<td>92.23</td>
+											<td>45.66</td>
+											<td>75.12</td>
+											<td>85.28</td>
+											<td>73.47</td>
+											<td>53.76</td>
+											<td>-</td>
+											</tr>
+											
+
+											<tr>
+											  <td><p class="rank">2</p><span class="date badge badge-secondary">May 18, 2021</span></td>
+											  <td style="word-break:break-word;"><p class="model">X-VLM</p>
+												<p class="institution">ByteDance AI Lab <br></p> 
+												   
+												<a href="mailto:zengyan.yanne@bytedance.com">Email</a> &nbsp; <a href="https://arxiv.org/abs/2111.08276" target="_blank">Paper (arXiv'21)</a>
+											  </td>
+											  <td>64.11</td> 
+											  <td>88.62</td>
+											  <td>94.46</td>
+											  <td>51.53</td>
+											  <td>79.00</td>
+											  <td>86.71</td>
+											  <td>74.16</td>
+											  <td>51.55</td>
+											  <td>55.00</td>
+											</tr>
+
+											
+											<tr>
+											  <td><p class="rank">3</p><span class="date badge badge-secondary">Mar 23, 2021</span></td>
+											  <td style="word-break:break-word;"><p class="model">ALBEF</p>
+												<p class="institution">Salesforce Research <br></p>
+												<a href="mailto:junnan.li@salesforce.com">Email</a> &nbsp; <a href="https://arxiv.org/abs/2107.07651" target="_blank">Paper (NeurIPS'21)</a>
+											  </td>
+											  <td>64.11</td> 
+											  <td>88.40</td>
+											  <td>93.96</td>
+											  <td>50.08</td>
+											  <td>77.72</td>
+											  <td>85.68</td>
+											  <td>73.17</td>
+											  <td>51.52</td>
+											  <td>24.30</td>
+											</tr>
+
+											<tr>
+											  <td><p class="rank">4</p><span class="date badge badge-secondary">April 25, 2021</span></td>
+											  <td style="word-break:break-word;"><p class="model">VL-T5</p>
+												<p class="institution">UNC Chapel Hill<br></p>
+												<a href="mailto:jmincho@cs.unc.edu">Email</a> &nbsp; <a href="https://arxiv.org/abs/2102.02779" target="_blank">Paper (ICML'21)</a>
+											  </td>
+											  <td>-</td> 
+											  <td>-</td>
+											  <td>-</td>
+											  <td>-</td>
+											  <td>-</td>
+											  <td>-</td>
+											  <td>73.84</td>
+											  <td>46.31</td>
+											  <td>27.89</td>
+											</tr>
+
+											<tr>
+											  <td><p class="rank">5</p><span class="date badge badge-secondary">July 1, 2021</span></td>
+											  <td style="word-break:break-word;"><p class="model"> UNITER </p>
+												<p class="institution">Microsoft Dynamics 365 AI Research<br></p>
+												<a href="mailto:yen-chun.chen@microsoft.com">Email</a> &nbsp; <a href="https://arxiv.org/abs/1909.11740" target="_blank">Paper (ECCV'20)</a>
+											  </td>
+											  <td>36.32</td> 
+											  <td>63.81</td>
+											  <td>75.13</td>
+											  <td>29.73</td>
+											  <td>56.00</td>
+											  <td>66.93</td>
+											  <td>66.60</td>
+											  <td>47.79</td>
+											  <td>36.86</td>
+											</tr>
+											
+											<tr>
+												<td><p class="rank">6</p><span class="date badge badge-secondary">Jan 28, 2022</span></td>
+												<td style="word-break:break-word;"><p class="model">LXMERT</p>
+												  <p class="institution"> UNC Chapel Hill <br></p>
+												  <a href="mailto:haotan@cs.unc.edu">Email</a> &nbsp; <a href="https://arxiv.org/abs/1908.07490" target="_blank">Paper (EMNLP'19)</a>  
+												</td>
+												<td>-</td> 
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>65.24</td>
+												<td>46.18</td>
+												<td>-</td>
+											  </tr>
+
+											<tr>
+											  <td><p class="rank">7</p><span class="date badge badge-secondary">Jan 13, 2021</span></td>
+											  <td style="word-break:break-word;"><p class="model"> ViLBERT</p>
+												<p class="institution">Georgia Institute of Technology <br></p>
+												<a href="mailto:jiasenlu@gatech.edu">Email</a> &nbsp; <a href="https://arxiv.org/abs/1908.02265" target="_blank">Paper (NeurIPS'21)</a>  
+											  </td>
+											  <td>-</td> 
+											  <td>-</td>
+											  <td>-</td>
+											  <td>27.51</td>
+											  <td>53.07</td>
+											  <td>63.87</td>
+											  <td>66.53</td>
+											  <td>48.38</td>
+											  <td>54.91</td>
+											</tr>
+												
+											  <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+											</tbody>
+										  </table>
+										  <p>
+										</div>
+										
+										<p><span style="color:red"><b>Submit to this leaderboard:</b></span> You can submit your prediction by sending email to <a href="mailto:zhouwangchunshu@buaa.edu.cn">zhouwangchunshu@buaa.edu.cn</a> with the title "VLUE submission (your model name)" and the same format of <a href=" " target="_blank">this example prediction file</a>.</p> 
+										
+										<!-- <p>We use <b>SPICE</b> for ranking all methods because SPICE correlates our human evaluation the most (please check our paper for more details.) </p>
+
+										<p>The above results are based on our latest human references <b>(v1.1)</b> and the previous results on v1.0 can be found <a href="leaderboard_v1.0.html" target="_blank">here</a>.</p>
+
+										<p>The difference between v1.1 and v1.0 is about the human references of the test examples. We add one more human reference for each example in the test set (previously 4, now 5). Please find the deatils in Table 1,3 ; Figure 4 ;and Section 3.3, 3.4. Note that the train/dev data and test data's input are unchanged. </p> -->
+									</div>
+											
+								</div>
+
+<div class="box-content">
+								<div class="row">
+									<div class="col-md-12" id="misc">
+										<h4 class="widget-title"><span><b>Misc.</b></span></h4>
+		<div style="font-size:15px"> 
+			 <h4><b>Citation</b></h4>
+
+
+<pre><code>@inproceedings{zhou-etal-2022-vlue,
+    title = "VLUE: A Multi-Task Multi-Dimension Benchmark for Evaluating Vision-Language Pre-training",
+    author = "Zhou, Wangchunshu and
+      Zeng, Yan  and
+      Diao, Shizhe  and
+      Zhang, Xinsong",
+    month = jan,
+    year = "2022",
+    address = "Online",
+}
+</code></pre>
+		</div>
+
+		
+	</div>
+</div>
+
+</div>
+
+		</div> <!-- /.container -->
+
+
+		 
+		<footer class="site-footer">
+			<div class="main-footer">
+
+				<div class="container"> 
+					<p class="small-text">Copyright 2022 &copy;.  ByteDance AI Lab 
+								</p> 
+					<div class="copyright">
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								
+							</div> <!-- /.col-md-6 -->
+
+						</div> <!-- /.row -->
+					</div> <!-- /.copyright -->
+				</div> <!-- /.container -->
+			</div> <!-- /.main-footer -->
+		</footer> <!-- /.site-footer -->
+
+		<a href="#about" id="top-link" class="fa fa-angle-up"></a>
+	
+        <!-- JavaScripts -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/min/plugins.min.js"></script>
+        <script src="js/min/custom.min.js"></script>
+			
+		<!-- Default Statcounter code for vlue
+https://vlue-benchmark.github.io/VLUE-website/ -->
+<script type="text/javascript">
+	var sc_project=12720372; 
+	var sc_invisible=1; 
+	var sc_security="58f9433d"; 
+	</script>
+	<script type="text/javascript"
+	src="https://www.statcounter.com/counter/counter.js"
+	async></script>
+	<noscript><div class="statcounter"><a title="Web Analytics
+	Made Easy - Statcounter" href="https://statcounter.com/"
+	target="_blank"><img class="statcounter"
+	src="https://c.statcounter.com/12720372/0/58f9433d/1/"
+	alt="Web Analytics Made Easy - Statcounter"
+	referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+	<!-- End of Statcounter Code -->
+	
+    </body>
+</html>
